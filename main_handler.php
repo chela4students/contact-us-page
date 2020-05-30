@@ -1,19 +1,18 @@
-<html><head><title>Submission Check</title></head></html>
 <?php
 	if(isset($_POST['submit'])){
 		$name=$_POST['name'];
 		$email=$_POST['email'];
+		$emailto=$_POST['email'];
+		$phone=$_POST['phone'];
 		$msg=$_POST['msg'];
 
-		$to='chela4students@gmail.com'; 
+		$to=$emailto; 
 		$subject='Form Submission';
-		$message="Name :".$name."\n"."Wrote the following :"."\n".$msg;
+		$message="Name :".$name."\n"."Phone :".$phone."\n"."Wrote the following :"."\n\n".$msg;
 		$headers="From: ".$email;
 
 		if(mail($to, $subject, $message, $headers)){
 			echo "<h1>Sent Successfully! Thank you"." ".$name.", We will contact you shortly!</h1>";
-			echo "<a href='https://www.chela4students.com'>GO BACK TO CHELA4STUDENTS.COM</a>";
-		
 		}
 		else{
 			echo "Something went wrong!";
